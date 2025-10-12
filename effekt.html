@@ -1,0 +1,151 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lichtwecker</title>
+    <style>
+        .big-icon {
+            -webkit-text-stroke: 1px;
+        }
+    </style>
+
+    <style>
+        /* Grid tile anchor */
+        .preset {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 0.5rem;
+            padding: 0.25rem;
+        }
+
+        /* Rectangle swatch with 4:3 ratio */
+        .swatch {
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.5rem;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+            /* aspect ratio using padding trick for wide browser support */
+            padding-top: 75%;
+            /* 4:3 ratio */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid transparent;
+        }
+
+        /* Content inside swatch: absolute layer */
+        .swatch>.inner {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* font-weight: 600; */
+            font-size: 50pt;
+        }
+
+        /* "Add" tile */
+        .swatch.add {
+            background: #FFFFFF;
+            border: 1px;
+            color: rgba(0, 0, 0, 0.65);
+            font-size: 2rem;
+        }
+
+        .swatch.aktiv {
+            border: 2px solid #00000068;
+        }
+
+        /* Label below the swatch */
+        .preset-label {
+            text-align: center;
+            font-size: 0.95rem;
+            font-weight: bold;
+        }
+
+        .preset-inner.aktiv {
+            font-weight: 600;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1>Effekte</h1>
+            </div>
+        </div>
+        <div class="row g-3">
+            <div class="col-6 mx-auto">
+                <a href="#" class="preset">
+                    <div class="swatch">
+                        <div class="inner text-body-tertiary">~</div>
+                    </div>
+                    <div class="preset-inner text-center">
+                        Pulsieren
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-6 mx-auto">
+                <a href="#" class="preset">
+                    <div class="swatch add" aria-hidden="true">
+                        <div class="inner text-body-tertiary">+</div>
+                    </div>
+                    <div class="text-center fw-semibold preset-inner">Hinzufügen</div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid position-fixed bottom-0 start-0 bg-light g-0 border-top border-light-subtle">
+        <div class="row d-flex justify-content-end">
+            <div class="col-12 d-flex p-0 text-end">
+                <a href="index.html" class="btn btn-outline-secondary border-0 flex-fill py-4 rounded-0 fw-bolder big-icon"
+                    role="button"><i class="bi bi-arrow-left"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+        const presets = document.querySelectorAll(".preset");
+
+        presets.forEach(preset => {
+            preset.addEventListener("click", e => {
+            e.preventDefault();
+
+            presets.forEach(p => {
+                p.querySelector(".swatch").classList.remove("aktiv");
+                p.querySelector(".preset-inner").classList.remove("aktiv");
+            });
+
+            const swatch = preset.querySelector(".swatch");
+            const label = preset.querySelector(".preset-inner");
+
+            swatch.classList.add("aktiv");
+            label.classList.add("aktiv");
+            });
+        });
+        });
+    </script>
+</body>
+
+</html>

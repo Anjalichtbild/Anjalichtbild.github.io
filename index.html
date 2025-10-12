@@ -1,0 +1,103 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lichtwecker</title>
+    <style>
+        .big-switch {
+            transform: scale(1.5);
+            /* Increase size */
+            margin-left: 1rem;
+            /* Keep spacing consistent */
+        }
+
+        h1 a {
+            text-decoration: none;
+            color: inherit;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1>Wecker</h1>
+            </div>
+        </div>
+        <div class="row" onclick="window.location.href='einstellungen.html'">
+            <div class="col-12 mx-auto">
+                <div class="container mt-4 p-3 rounded bg-light bg-gradient text-center  align-items-center alarm_row shadow-sm">
+                    <div class="row">
+                        <div class="col-12 text-start">
+                            <div class="fs-4 fw-semibold">Aufwachen <i class="bi bi-sunrise"></i></div>
+                        </div>
+                    </div>
+                    <div class="row py-3 justify-content-between  align-items-center">
+                        <div class="col-4 fs-4 my-0">
+                            7:20
+                        </div>
+                        <div class="col-3 fs-4 my-0">
+                            15min
+                        </div>
+                        <div class="col-3">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input big-switch" type="checkbox" id="flexSwitchCheck" checked onclick="event.stopPropagation();">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" onclick="window.location.href='einstellungen_sleep.html'">
+            <div class="col-12 mx-auto">
+                <div class="container mt-4 p-3 rounded bg-light bg-gradient text-center  align-items-center alarm_row shadow-sm">
+                    <div class="row">
+                        <div class="col-12 text-start">
+                            <div class="fs-4 fw-semibold">Schlafen <i class="bi bi-sunset px-2"></i></div>
+                        </div>
+                    </div>
+                    <div class="row py-3 justify-content-between  align-items-center">
+                        <div class="col-4 fs-4 fw-semibold my-0 px-4">
+                        </div>
+                        <div class="col-3 fs-4 my-0">
+                            15min
+                        </div>
+                        <div class="col-3">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input big-switch" type="checkbox" id="flexSwitchCheck" onclick="event.stopPropagation();">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid position-fixed bottom-0 start-0 bg-light g-0 border-top border-light-subtle">
+        <div class="row d-flex">
+            <div class="col-6 d-flex p-0">
+                <!-- <a href="/beleuchtung" class="btn btn-outline-secondary border-0 flex-fill py-4 rounded-0  {%if ist_beleuchtung_aktiv %}bg-warning-subtle fw-semibold {% endif %}" role="button">Beleuchtung</a> -->
+                <a href="beleuchtung.html" class="btn btn-outline-secondary border-0 flex-fill py-4 rounded-0" role="button">Beleuchtung</a>
+            </div>
+            <div class="col-6 d-flex p-0 border-end  border-light-subtle">
+                <!-- <a href="/effekt" class="btn btn-outline-secondary border-0 flex-fill py-4 rounded-0 {%if ist_effekt_aktiv %}bg-warning-subtle fw-semibold {% endif %}" role="button">Effekt</a> -->
+                <a href="effekt.html" class="btn btn-outline-secondary border-0 flex-fill py-4 rounded-0" role="button">Effekt</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
