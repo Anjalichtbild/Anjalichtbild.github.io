@@ -157,15 +157,17 @@
             e.preventDefault();
 
             presets.forEach(p => {
+                if (p != preset)
+                {
                 p.querySelector(".swatch").classList.remove("aktiv");
-                p.querySelector(".preset-inner").classList.remove("aktiv");
+                p.querySelector(".preset-inner").classList.remove("aktiv"); }
             });
 
             const swatch = preset.querySelector(".swatch");
             const label = preset.querySelector(".preset-inner");
 
-            swatch.classList.add("aktiv");
-            label.classList.add("aktiv");
+            swatch.classList.toggle("aktiv");
+            label.classList.toggle("aktiv");
             });
         });
         });
